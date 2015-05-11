@@ -1,0 +1,22 @@
+body .container{
+	margin-left: -1.2%;
+}
+
+#map{
+	position: absolute;
+	background-color: green;
+	height: 100%;
+}
+
+#pictures{
+	position: absolute;
+	background-color: black;
+	height: 69%;
+}
+
+#options{
+	position: absolute;
+	margin-top: 34.5%;
+	background-color: blue;
+	height: 30%;
+}
