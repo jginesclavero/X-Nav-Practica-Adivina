@@ -1,45 +1,52 @@
-<!doctype html>
+<!Doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Adivina</title>
 		<link rel="stylesheet" href="css/adivina.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/funkyradio.css">
-		<link rel="stylesheet" href="css/button.css">
+		<link rel="stylesheet" href="css/confWindow.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	</head>
 	<body>
-
-		<div id="radio-set" class="funkyradio">
-        	<div class="funkyradio-info">
-            	<input type="radio" name="radio" id="radio1" checked/>
-            	<label for="radio1">Capitales</label>
-        	</div>
-        	<div class="funkyradio-info">
-            	<input type="radio" name="radio" id="radio2" />
-            	<label for="radio2">Monumentos</label>
-        	</div>
-        	<div class="funkyradio-info">
-           		<input type="radio" name="radio" id="radio3" />
-            	<label for="radio3">Fourth Option danger</label>
-        	</div>
-        	<div class="funkyradio-info">
-            	<input type="radio" name="radio" id="radio4" />
-            	<label for="radio4">Fifth Option warning</label>
-        	</div>
-
-        	<div class="" data-toggle="buttons" onclick="configuration()">
-            	<label class="btn btn-lg btn-success">
-               		<input type="radio" name="options" id="option1" autocomplete="off" checked >
-                	Siguiente <i class="fa fa-arrow-circle-right"></i> 
+		<div id="confWindow">
+			<div id="nextButtonDiv" class="" data-toggle="buttons" onclick="typeGame()">
+            	<label class="btn btn-lg btn-success" id="nextButton">
+            		<input type="radio" name="options" autocomplete="off" checked >
+                		<label for="nextButton">Siguiente <i class="fa fa-arrow-circle-right"></i></label>
+            		</input>
             	</label>
         	</div>
+        	<div id="startButtonDiv" class="" data-toggle="buttons" onclick="selectDifficult()">
+            	<label class="btn btn-lg btn-success" id="startButton">
+            		<input type="radio" name="options" autocomplete="off" checked >
+                		<label for="startButton">Comenzar <i class="fa fa-arrow-circle-right"></i></label>
+            		</input>
+            	</label>
+        	</div>
+			<div id="radio-set" class="funkyradio">
+				<h3 id="configTitle"></h3>
+        		<div class="funkyradio-info">
+            		<input type="radio" name="radio" id="radio1" checked />
+            		<label for="radio1"></label>
+        		</div>
+        		<div class="funkyradio-info">
+            		<input type="radio" name="radio" id="radio2" />
+            		<label for="radio2"></label>
+        		</div>
+        		<div class="funkyradio-info">
+           			<input type="radio" name="radio" id="radio3" />
+            		<label for="radio3"></label>
+        		</div>
+        		<div class="funkyradio-info">
+            		<input type="radio" name="radio" id="radio4" />
+            		<label for="radio4"></label>
+        		</div>
+    		</div>
     	</div>
-
-		<div class=".container-fluid">
+		
+		<div id="game" class=".container-fluid">
 			<div class="row">
   				<div class="col-md-6" id="pictures">pictures</div>
   				<div class="col-md-6 col-md-offset-6" id="map">map</div>
@@ -48,7 +55,6 @@
   				<div class="col-md-6" id="options">options</div>
 			</div>
 		</div>
-
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/adivina.js"></script>
