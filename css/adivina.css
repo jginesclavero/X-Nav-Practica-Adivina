@@ -4,7 +4,7 @@ body .container{
 
 #map{
 	position: absolute;
-	background-color: green;
+	/*background-color: green;*/
 	height: 100%;
 }
 
@@ -15,10 +15,18 @@ body .container{
 }
 
 #options{
+	background-color: rgb(204, 255, 152);
 	position: absolute;
 	margin-top: 34.5%;
-	background-color: blue;
 	height: 30%;
-}
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+	border-radius: 29px 29px 29px 29px;
+	-moz-border-radius: 29px 29px 29px 29px;
+	-webkit-border-radius: 29px 29px 29px 29px;
+	border: 2px solid #000000;
 
 }
+

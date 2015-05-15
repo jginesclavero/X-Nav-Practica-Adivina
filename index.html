@@ -5,8 +5,11 @@
 		<title>Adivina</title>
 		<link rel="stylesheet" href="css/adivina.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/buttons.css">
 		<link rel="stylesheet" href="css/confWindow.css">
+        <link rel="stylesheet" href="css/optionsWindow.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	</head>
 	<body>
@@ -46,17 +49,35 @@
     		</div>
     	</div>
 		
-		<div id="game" class=".container-fluid">
-			<div class="row">
-  				<div class="col-md-6" id="pictures">pictures</div>
-  				<div class="col-md-6 col-md-offset-6" id="map">map</div>
-			</div>
-			<div class="row">
-  				<div class="col-md-6" id="options">options</div>
-			</div>
-		</div>
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/adivina.js"></script>
-	</body>	
+       <div id="game" class=".container-fluid">
+          <div class="row">
+            <div class="col-md-6" id="pictures">pictures</div>
+            <div class="col-md-6 col-md-offset-6" id="map"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="options">
+                <div id="finishButtonDiv" class="" data-toggle="buttons" onclick="finishGame()">
+                    <label class="btn btn-lg btn-success" id="finishButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
+                        <label for="finishButton">Finalizar <i class="fa fa-power-off"></i></label>
+                        </input>
+                    </label>
+                </div>
+                <div id="difficultButtonDiv" class="" data-toggle="buttons" onclick="showDifficult()">
+                    <label class="btn btn-lg btn-success" id="difficultButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
+                        <label for="difficultButton">Cambiar Dificultad</label>
+                        </input>
+                    </label>
+                </div>
+                <div id="pointsDiv">
+                    <h3>Puntuación: </h3>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script type="text/javascript" src="js/adivina.js"></script>
+    </body>	
 </html>

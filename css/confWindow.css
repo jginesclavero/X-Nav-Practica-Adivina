@@ -9,9 +9,10 @@
 	z-index: 11;
 	border-radius: 10px;
 
-	-webkit-box-shadow: 10px 10px 300px 200px rgba(0,0,0,0.9);
-	-moz-box-shadow: 10px 10px 300px 200px rgba(0,0,0,0.9);
-	box-shadow: 10px 10px 300px 200px rgba(0,0,0,0.9);
+	-webkit-box-shadow: 6px 2px 500px 500px rgba(0,0,0,0.8);
+    -moz-box-shadow: 6px 2px 500px 500px rgba(0,0,0,0.8);
+    box-shadow: 6px 2px 500px 500px rgba(0,0,0,0.8);
+
 }
 					/*--------------------------------SELECTOR-------------------------------*/
 
@@ -105,24 +106,6 @@
 }
 
 					/*--------------------------------BOTONES-------------------------------*/
-
-.btn.active {                
-    display: block;      
-}
-
-.btn span:nth-of-type(1)  {             
-    display: none;
-}
-.btn span:last-child  {             
-    display: block;     
-}
-
-.btn.active  span:nth-of-type(1)  {             
-    display: block;     
-}
-.btn.active span:last-child  {              
-    display: none;          
-}
 
 #nextButtonDiv{
 	position: absolute;
