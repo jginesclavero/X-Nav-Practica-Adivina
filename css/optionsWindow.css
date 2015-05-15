@@ -1,0 +1,13 @@
+#finishButtonDiv{
+	position: absolute;
+	margin-left: 65%;
+	margin-top: 16%;
+	z-index: 10;
+}
+
+#difficultButtonDiv{
+	position: absolute;
+	margin-left: 60%;
+	margin-top: 3%;
+	z-index: 10;
+}

@@ -1,0 +1,69 @@
+{ 
+  "type": "FeatureCollection",
+    "features": [
+      { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
+        "properties": {"Name": "Paris"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [40.418889, -3.691944]},
+        "properties": {"Name": "Madrid"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [51.507222, -0.1275]},
+        "properties": {"Name": "Londres"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [35.683889, 139.774444]},
+        "properties": {"Name": "Tokio"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [39.905, 116.391389]},
+        "properties": {"Name": "Pekin"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [38.895, -77.036667]},
+        "properties": {"Name": "Washington D.C."}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [52.516667, 13.383333]},
+        "properties": {"Name": "Berlin"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [-34.599722, -58.381944]},
+        "properties": {"Name": "Buenos Aires"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [55.75, 37.616667]},
+        "properties": {"Name": "Moscú"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [39.933333, 32.866667]},
+        "properties": {"Name": "Ankara"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [9.983333, -84.383333]},
+        "properties": {"Name": "Atenas"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [-18.933333, 47.516667]},
+        "properties": {"Name": "Antananarivo"}
+       }
+    ]
+ }
