@@ -33,7 +33,7 @@
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [38.895, -77.036667]},
-        "properties": {"Name": "Washington D.C."}
+        "properties": {"Name": "Washington"}
       },
 
        { "type": "Feature",
@@ -43,17 +43,17 @@
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-34.599722, -58.381944]},
-        "properties": {"Name": "Buenos Aires"}
+        "properties": {"Name": "BuenosAires"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [55.75, 37.616667]},
-        "properties": {"Name": "Moscú"}
+        "properties": {"Name": "Moscu"}
       },
 
        { "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [39.933333, 32.866667]},
-        "properties": {"Name": "Ankara"}
+        "geometry": {"type": "Point", "coordinates": [41.9, 12.5]},
+        "properties": {"Name": "Roma"}
       },
 
        { "type": "Feature",

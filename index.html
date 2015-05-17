@@ -51,7 +51,8 @@
 		
        <div id="game" class=".container-fluid">
           <div class="row">
-            <div class="col-md-6" id="pictures">pictures</div>
+            <div class="col-md-6" id="picturesDiv">                                   
+            </div>
             <div class="col-md-6 col-md-offset-6" id="map"></div>
         </div>
         <div class="row">
@@ -67,6 +68,13 @@
                     <label class="btn btn-lg btn-success" id="difficultButton">
                         <input type="radio" name="options" autocomplete="off" checked >
                         <label for="difficultButton">Cambiar Dificultad</label>
+                        </input>
+                    </label>
+                </div>
+                <div id="DebugButtonDiv" class="" data-toggle="buttons" onclick="nextSet()">
+                    <label class="btn btn-lg btn-success" id="DebugButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
+                        <label for="DebugButton">Siguiente Set</label>
                         </input>
                     </label>
                 </div>

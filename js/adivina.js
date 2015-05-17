@@ -6,6 +6,7 @@ var TYPE_GAME4 = "Radio4";
 var difficult;
 var indexList = [];
 var placeList = [];
+var linkList = [];
 checkURL();
 
 var map = L.map('map',{
@@ -82,15 +83,19 @@ function selectDifficult(){
 	if($("#radio1").prop("checked")){
     	console.log("facil");
     	difficult = 1;
+        TIME_DIFFICULT = 5000;
     	//history.pushState(null, "Adivina: Capitales", window.location.href);
     }else if($("#radio2").prop("checked")){
     	console.log("medio");
     	difficult = 2;
+        TIME_DIFFICULT = 4000;
     }else if($("#radio3").prop("checked")){
     	console.log("dificil");
     	difficult = 3;
+        TIME_DIFFICULT = 3000;
     }else if($("#radio4").prop("checked")){
     	difficult = 4;
+        TIME_DIFFICULT = 2000;
     	console.log("extremo");
     }
 
@@ -103,16 +108,17 @@ function getJson(filename){
         $.each(data.features,function(posicion, place){
             placeList.push(place);
         });
-        startGame();
+        nextSet();
     });
 }
 
-function startGame(){
+function nextSet(){
     console.log("COMENZAMOOS");
-    for(var i=0;i<placeList.length;i+=1){
-        var index = randIndex(placeList.length);
-        console.log(placeList[index].properties.Name);
-    }
+    //for(var i=0;i<placeList.length;i+=1){
+    var index = randIndex(placeList.length);
+    console.log(placeList[index].properties.Name);
+    getPictures(placeList[index].properties.Name);
+   // }
     console.log("Juego terminado");
 }
 
@@ -122,4 +128,34 @@ function randIndex(max){
     }while($.inArray(index,indexList) != -1);
     indexList.push(index);
     return index;
+}
+
+function getPictures(tag){
+    jQuery(document).ready(function() {
+        linkList = [];
+        var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?tagmode=any&id=132464580@N05&format=json&jsoncallback=?";
+        $.getJSON(flickerAPI, {
+            tags: tag,
+        }).done(function(data) {
+            $.each(data.items, function(i, item) {
+                linkList.push(item.media.m);
+            });
+            changePhoto();
+        });
+    });
+
+}
+
+function changePhoto(){
+    var j=0;
+    for(var i=0;i<linkList.length;i+=1){ 
+        setHandler(i);
+    }
+}
+
+function setHandler(index){
+    setTimeout(function(){ 
+        var img = $("<img>").attr("src",linkList[index]);
+        $("#picturesDiv").html(img);
+    }, index*TIME_DIFFICULT,linkList,index); 
 }

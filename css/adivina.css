@@ -8,10 +8,16 @@ body .container{
 	height: 100%;
 }
 
-#pictures{
+#picturesDiv{
 	position: absolute;
 	background-color: black;
 	height: 69%;
+}
+#picturesDiv img{
+	margin-left: 20%;
+	margin-top: 10%;
+	height: 60%;
+	width: 60%;
 }
 
 #options{
