@@ -1,0 +1,69 @@
+{ 
+  "type": "FeatureCollection",
+    "features": [
+      { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
+        "properties": {"Name": "Amelie"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [40.67, -73.94]},
+        "properties": {"Name": "El lobo de Wall Street"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [51.507222, -0.1275]},
+        "properties": {"Name": "Sherlock Holmes"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [49.368889, -0.868611]},
+        "properties": {"Name": "Salvar al soldado Ryan"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [40.67, -73.94]},
+        "properties": {"Name": "King Kong"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [-25.725556, 28.243889]},
+        "properties": {"Name": "Invictus"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [36.175, -115.136389]},
+        "properties": {"Name": "Resacon en las Vegas"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [46.766667, 23.583333]},
+        "properties": {"Name": "Dracula"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [38.805, 22.56]},
+        "properties": {"Name": "300"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [39.9575, 26.238889]},
+        "properties": {"Name": "Troya"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
+        "properties": {"Name": "El jorobado de Notre Dame"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [31.698889, 35.306389]},
+        "properties": {"Name": "La vida de Brian"}
+       }
+    ]
+ }
