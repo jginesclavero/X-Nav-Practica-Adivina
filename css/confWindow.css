@@ -1,14 +1,11 @@
 					/*----------------------------VENTANA EN GENERAL-------------------------------*/
 #confWindow{
 	position: absolute;
-	width: 40%;
-	height: 40%;
-	margin-left: 28%;
 	margin-top: 12%;
 	background-color: white;
 	z-index: 11;
 	border-radius: 10px;
-
+    padding-bottom: 1%;
 	-webkit-box-shadow: 6px 2px 500px 500px rgba(0,0,0,0.8);
     -moz-box-shadow: 6px 2px 500px 500px rgba(0,0,0,0.8);
     box-shadow: 6px 2px 500px 500px rgba(0,0,0,0.8);
@@ -25,12 +22,10 @@
 
 .funkyradio div {
     clear: both;
-    /*margin: 0 50px;*/
     overflow: hidden;
 }
 .funkyradio label {
-    /*min-width: 400px;*/
-    width: 60%;
+    width: 97%;
     border-radius: 3px;
     border: 1px solid #D1D3D4;
     font-weight: normal;
@@ -107,17 +102,19 @@
 
 					/*--------------------------------BOTONES-------------------------------*/
 
+
 #nextButtonDiv{
 	position: absolute;
-	margin-left: 68%;
-	margin-top: 20%;
 	z-index: 10;
+    
 }
 
 #startButtonDiv{
 	position: absolute;
-	margin-left: 68%;
-	margin-top: 20%;
 	z-index: 10;
-	visibility: hidden;
+}
+
+#generalButtonDiv{
+    margin-left: -7%;
+    margin-top: 16%;
 }

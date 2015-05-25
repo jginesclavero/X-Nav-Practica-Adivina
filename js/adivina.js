@@ -1,20 +1,23 @@
 var typeGame;
 var TYPE_GAME1 = "Capitales";
 var TYPE_GAME2 = "Peliculas";
-var TYPE_GAME3 = "Monumentos";
-var TYPE_GAME4 = "Radio4";
+var TYPE_GAME3 = "España";
 var CONST_LAT = 113.300;
 var CONST_LNG = 111.100;
 var MAX_SCORE = 1000;
 var MARGIN_KM = 25;
 var yourScore = 0;
 var difficult;
+var numGame = 0;
 var presentIndex = 0;
 var indexList = [];
 var placeList = [];
 var linkList = [];
 var handlerList = [];
 var numPhotos = 0;
+var marker;
+var haveJson = false;
+var finishGame = false;
 var map = L.map('map',{
     center:[0,0],
     zoom:2,
@@ -25,27 +28,43 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {  // http://{s}.tile.osm
 }).addTo(map);
 
 function onMapClick(e) {
-    if(indexList.length <= 12){ 
-        var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-        //Limpiar otros marcadores
-        handlerOff();
-        scoreCalc(e.latlng);
-        saveHistory();
-        nextSet();
+    if (marker != null){
+           map.removeLayer(marker);
+    }
+    marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+    handlerOff();
+    scoreCalc(e.latlng);
+    if(indexList.length == 5){ // PONERLO A 12 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        var score = $("#score").html();
+        alert("Juego completado. Tu puntuación es de " + score + " puntos");
+        finishGame = true;
+        //saveHistory();
     }else{
-        console.log("Juego terminado");
+        nextSet();
     }
 }
 map.on('click', onMapClick);
+checkURL();
+
+function checkScreen(){
+    if($(window).width()<600){
+        $("#generalButtonDiv").css("margin-top", "43%")
+    }
+}
 
 window.onpopstate = function(event) {
-    //alert("Historia recuperada");
-    indexList = event.IndexList;
-    $("#score").html(event.Score);
-    console.log("Historia recuperada");
+    difficult = event.state.Difficult;
+    typeGame = event.state.TypeGame;
+    indexList = event.state.IndexList;
+    numGame = event.state.NumGame;
+    handlerOff();
+    placeList = [];
+    finishGame = false;
+    $("#score").html(event.state.Score);
+    getJson(typeGame);
 };
 
-checkURL();
+
 
 function handlerOff(){
     for(var i=0;i<handlerList.length;i+=1){
@@ -66,18 +85,35 @@ function scoreCalc(latlngClick){
     var score = parseInt($("#score").html());
     $("#score").html(Math.trunc(score + yourScore));
     yourScore = 0;
+    alert("Solución: " + placeList[presentIndex].properties.Name);
 }
 
 
 
 function saveHistory(){
-    alert("Historia guardada");
     var score = parseInt($("#score").html());
-    var saveObjet = {Score: score, IndexList: indexList};
-    history.pushState(saveObjet,null, "?"+typeGame);
+    numGame++;
+    var saveObject = {"Difficult": difficult, "TypeGame": typeGame, "IndexList": indexList,"Score":score, "NumGame": numGame};
+    var score = $("#score").html();
+    history.pushState(saveObject,null, "?"+typeGame + "?score=" + score);
+    $("#historyListDiv").append("<a href=javascript:historyCallback(" + numGame + ")>Adivina - " + typeGame + " " 
+        + " Punt: "+ score + "Lvl: " + indexList.length +  "<br>");
+    indexList = [];
 }
 
+function historyCallback(gameTogo){
+    alert("history callback");
+    if((gameTogo - numGame) == 0 ){
+        alert("No puedes ir a este juego");
+    }else{
+        alert("IndexList.length :" + indexList.length);
 
+        if(!finishGame){ 
+            saveHistory();
+        }
+        history.go(gameTogo - numGame);
+    }
+}
 
 
 function checkURL(){
@@ -92,43 +128,61 @@ function checkURL(){
 	}
 }
 
+function showTypeGame(){
+    checkScreen();
+    $("#radio4Div").hide();
+    $('#startButtonDiv').hide();
+    $("#confWindow").show();
+    $("#nextButton").show();
+    $("#score").html(0);
+    handlerOff();
+    $('#configTitle').html("Seleccione el tipo de juego");
+    $('label[for=radio1]').html(TYPE_GAME1);
+    $('label[for=radio2]').html(TYPE_GAME2);
+    $('label[for=radio3]').html(TYPE_GAME3);
+    $("#nextButtonDiv").attr('onclick', '').click(function() {
+        if($("#radio1").prop("checked")){
+            console.log(TYPE_GAME1);
+            typeGame = TYPE_GAME1;
+            document.title = 'Adivina - ' + TYPE_GAME1;
+        }else if($("#radio2").prop("checked")){
+            console.log(TYPE_GAME2);
+            typeGame = TYPE_GAME2;
+            document.title = 'Adivina - ' + TYPE_GAME2;
+        }else if($("#radio3").prop("checked")){
+            console.log(TYPE_GAME3);
+            typeGame = TYPE_GAME3;
+            document.title = 'Adivina - ' + TYPE_GAME3;
+        }
+        showDifficult();
+    });
+
+}
+
 function typeGame() {
     if($("#radio1").prop("checked")){
     	console.log(TYPE_GAME1);
     	typeGame = TYPE_GAME1;
         document.title = 'Adivina - ' + TYPE_GAME1;
-    	//history.pushState(null,null, "?"+TYPE_GAME1);
     }else if($("#radio2").prop("checked")){
     	console.log(TYPE_GAME2);
     	typeGame = TYPE_GAME2;
         document.title = 'Adivina - ' + TYPE_GAME2;
-        //history.pushState(null, null, "?"+TYPE_GAME2);
     }else if($("#radio3").prop("checked")){
     	console.log(TYPE_GAME3);
     	typeGame = TYPE_GAME3;
         document.title = 'Adivina - ' + TYPE_GAME3;
-        //history.pushState(null, null, "?"+TYPE_GAME3);
     }else if($("#radio4").prop("checked")){
     	console.log(TYPE_GAME4);
     	typeGame = TYPE_GAME4;
          document.title = 'Adivina - ' + TYPE_GAME4;
-        //history.pushState(null, null, "?"+TYPE_GAME4);
     }
     showDifficult();
 }
 
-function showTypeGame(){
-
-	$('#configTitle').html("Seleccione el tipo de juego");
-	$('label[for=radio1]').html(TYPE_GAME1);
-	$('label[for=radio2]').html(TYPE_GAME2);
-	$('label[for=radio3]').html(TYPE_GAME3);
-	$('label[for=radio4]').html(TYPE_GAME4);
-
-}
 
 function showDifficult(){
-
+    $("#radio4Div").show();
     $("#confWindow").show();
 	$('#configTitle').html("Seleccione la dificultad");
 	$('label[for=radio1]').html('Facil');
@@ -136,8 +190,7 @@ function showDifficult(){
 	$('label[for=radio3]').html('Dificil');
 	$('label[for=radio4]').html('Extremo');
 	$("#nextButton").hide();
-	$('#startButtonDiv').css('visibility', 'visible');
-
+	$('#startButtonDiv').show();
 }
 
 function selectDifficult(){
@@ -149,22 +202,25 @@ function selectDifficult(){
     }else if($("#radio2").prop("checked")){
     	console.log("medio");
     	difficult = 2;
-        TIME_DIFFICULT = 4000;
+        TIME_DIFFICULT = 3500;
     }else if($("#radio3").prop("checked")){
     	console.log("dificil");
     	difficult = 3;
-        TIME_DIFFICULT = 3000;
+        TIME_DIFFICULT = 2000;
     }else if($("#radio4").prop("checked")){
     	difficult = 4;
-        TIME_DIFFICULT = 2000;
+        TIME_DIFFICULT = 1000;
     	console.log("extremo");
     }
-
-    getJson(typeGame);
+    if(!haveJson){
+        getJson(typeGame);
+        haveJson = true;
+    }
 }
 
 function getJson(filename){
     var path = "/juegos/" + filename + ".json";
+    placeList = [];
     $.getJSON(path, function(data) {
         $.each(data.features,function(posicion, place){
             placeList.push(place);
@@ -205,7 +261,6 @@ function getPictures(tag){
             changePhoto();
         });
     });
-
 }
 
 function changePhoto(){
@@ -223,4 +278,12 @@ function setHandler(photoindex){
     }, photoindex*TIME_DIFFICULT,linkList,photoindex); 
 
     handlerList.push(handler);
+}
+
+
+function newGame(){
+    haveJson = false;
+    finishGame = false;
+    saveHistory();
+    showTypeGame();
 }

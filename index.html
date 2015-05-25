@@ -1,92 +1,106 @@
 <!Doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Adivina</title>
-		<link rel="stylesheet" href="css/adivina.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/buttons.css">
-		<link rel="stylesheet" href="css/confWindow.css">
-        <link rel="stylesheet" href="css/optionsWindow.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	</head>
-	<body>
-		<div id="confWindow">
-			<div id="nextButtonDiv" class="" data-toggle="buttons" onclick="typeGame()">
-            	<label class="btn btn-lg btn-success" id="nextButton">
-            		<input type="radio" name="options" autocomplete="off" checked >
-                		<label for="nextButton">Siguiente <i class="fa fa-arrow-circle-right"></i></label>
-            		</input>
-            	</label>
-        	</div>
-        	<div id="startButtonDiv" class="" data-toggle="buttons" onclick="selectDifficult()">
-            	<label class="btn btn-lg btn-success" id="startButton">
-            		<input type="radio" name="options" autocomplete="off" checked >
-                		<label for="startButton">Comenzar <i class="fa fa-arrow-circle-right"></i></label>
-            		</input>
-            	</label>
-        	</div>
-			<div id="radio-set" class="funkyradio">
-				<h3 id="configTitle"></h3>
-        		<div class="funkyradio-info">
-            		<input type="radio" name="radio" id="radio1" checked />
-            		<label for="radio1"></label>
-        		</div>
-        		<div class="funkyradio-info">
-            		<input type="radio" name="radio" id="radio2" />
-            		<label for="radio2"></label>
-        		</div>
-        		<div class="funkyradio-info">
-           			<input type="radio" name="radio" id="radio3" />
-            		<label for="radio3"></label>
-        		</div>
-        		<div class="funkyradio-info">
-            		<input type="radio" name="radio" id="radio4" />
-            		<label for="radio4"></label>
-        		</div>
-    		</div>
-    	</div>
-		
-       <div id="game" class=".container-fluid">
-          <div class="row">
-            <div class="col-md-6" id="picturesDiv">                                   
+<head>
+  <meta charset="utf-8">
+  <title>Adivina</title>
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/adivina.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/confWindow.css">
+  <link rel="stylesheet" href="css/optionsWindow.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<body>
+    <div class="row">    
+        <div id="confWindow" class="col-md-offset-3 col-md-6 col-xs-12">
+            <div class="col-md-9 col-xs-9">
+                <div id="radio-set" class="funkyradio">
+                    <h3 id="configTitle"></h3>
+                    <div class="funkyradio-info">
+                        <input type="radio" name="radio" id="radio1" checked />
+                        <label for="radio1"></label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="radio" name="radio" id="radio2" />
+                        <label for="radio2"></label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="radio" name="radio" id="radio3" />
+                        <label for="radio3"></label>
+                    </div>
+                    <div class="funkyradio-info" id="radio4Div">
+                        <input type="radio" name="radio" id="radio4" />
+                        <label for="radio4"></label>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 col-md-offset-6" id="map"></div>
-        </div>
+            <div class="col-md-3 col-xs-3" id="generalButtonDiv">
+                <div id="nextButtonDiv" class="" data-toggle="buttons" onclick="typeGame()">
+                    <label class="btn btn-sm btn-success" id="nextButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
+                            <label for="nextButton">Siguiente <i class="fa fa-arrow-circle-right"></i></label>
+                        </input>
+                    </label>
+                </div>
+                <div id="startButtonDiv" class="" data-toggle="buttons" onclick="selectDifficult()">
+                    <label class="btn btn-sm btn-success" id="startButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
+                            <label for="startButton">Comenzar <i class="fa fa-arrow-circle-right"></i></label>
+                        </input>
+                    </label>
+                </div>
+            </div>
+        </div> 
+    </div> 
+    <div class="container">
         <div class="row">
-            <div class="col-md-6" id="options">
-                <div id="finishButtonDiv" class="" data-toggle="buttons" onclick="finishGame()">
-                    <label class="btn btn-lg btn-success" id="finishButton">
-                        <input type="radio" name="options" autocomplete="off" checked >
-                        <label for="finishButton">Finalizar <i class="fa fa-power-off"></i></label>
+            <div class="col-md-6 col-md-offset-6 col-xs-12 col-xs-12-push" id="map"></div>
+            <div class="col-md-6 col-xs-12 col-xs-12-pull" id="leftCol">                    
+                <div class="" id="picturesDiv"></div>      
+                <div class="row" id="options">
+                    <div class="col-md-4">
+                        <div id="scoreDiv">
+                            <h3>Puntuación: <i id="score">0</i> </h3>
+                        </div>
+                        <div id="finishButtonDiv" data-toggle="buttons" onclick="finishGame()">
+                            <label class="btn btn-lg btn-success" id="finishButton">
+                                <input type="radio" name="options" autocomplete="off" checked >
+                                <label for="finishButton">Finalizar <i class="fa fa-power-off"></i></label>
+                            </input>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="difficultButtonDiv" data-toggle="buttons" onclick="showDifficult()">
+                        <label class="btn btn-lg btn-success" id="difficultButton">
+                            <input type="radio" name="options" autocomplete="off" checked >
+                            <label for="difficultButton">Dificultad</label>
                         </input>
                     </label>
                 </div>
-                <div id="difficultButtonDiv" class="" data-toggle="buttons" onclick="showDifficult()">
-                    <label class="btn btn-lg btn-success" id="difficultButton">
+                <div id="newGameButtonDiv" data-toggle="buttons" onclick="newGame()">
+                    <label class="btn btn-lg btn-success" id="newGameButton">
                         <input type="radio" name="options" autocomplete="off" checked >
-                        <label for="difficultButton">Cambiar Dificultad</label>
-                        </input>
-                    </label>
-                </div>
-                <div id="DebugButtonDiv" class="" data-toggle="buttons" onclick="nextSet()">
-                    <label class="btn btn-lg btn-success" id="DebugButton">
-                        <input type="radio" name="options" autocomplete="off" checked >
-                        <label for="DebugButton">Siguiente Set</label>
-                        </input>
-                    </label>
-                </div>
-                <div id="scoreDiv">
-                    <h3>Puntuación: <i id="score">0</i> </h3>
-                </div>
+                        <label for="newGameButton">Juego Nuevo</label>
+                    </input>
+                </label>
             </div>
         </div>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-        <script type="text/javascript" src="js/adivina.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
-    </body>	
+        <div id="historyListDiv" class="col-md-4"></div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="js/adivina.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+</body>	
 </html>

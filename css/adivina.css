@@ -1,34 +1,39 @@
+body{
+	height: 100%;
+	width: 100%;
+}
+
 body .container{
 	margin-left: -1.2%;
 }
 
 #map{
 	position: absolute;
-	/*background-color: green;*/
 	height: 100%;
+	width: 100%;	
+}
+#leftcol{
+	position: absolute;
+	margin-left: 3%;
 }
 
-#picturesDiv{
-	position: absolute;
-	background-color: black;
-	height: 69%;
-}
 #picturesDiv img{
-	margin-left: 20%;
-	margin-top: 10%;
-	height: 60%;
-	width: 60%;
+	text-align: center;
+	height: 200px;
+	width: 300px;
+	border-radius: 29px 29px 29px 29px;
+	-moz-border-radius: 29px 29px 29px 29px;
+	-webkit-border-radius: 29px 29px 29px 29px;
+	border: 2px solid #000000;
 }
 
 #options{
 	background-color: rgb(204, 255, 152);
-	position: absolute;
-	margin-top: 34.5%;
+	margin-top: 30%;
 	height: 30%;
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
 	border-radius: 29px 29px 29px 29px;
 	-moz-border-radius: 29px 29px 29px 29px;
 	-webkit-border-radius: 29px 29px 29px 29px;

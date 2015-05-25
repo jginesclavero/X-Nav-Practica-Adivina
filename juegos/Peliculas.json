@@ -10,25 +10,25 @@
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [40.67, -73.94]},
-        "properties": {"Name": "El lobo de Wall Street"}
+        "properties": {"Name": "El_lobo_de_Wall_Street"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [51.507222, -0.1275]},
-        "properties": {"Name": "Sherlock Holmes"}
+        "properties": {"Name": "Sherlock_Holmes"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [49.368889, -0.868611]},
-        "properties": {"Name": "Salvar al soldado Ryan"}
+        "properties": {"Name": "Salvar_al_soldado_Ryan"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [40.67, -73.94]},
-        "properties": {"Name": "King Kong"}
+        "properties": {"Name": "King_Kong"}
       },
 
        { "type": "Feature",
@@ -38,7 +38,7 @@
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [36.175, -115.136389]},
-        "properties": {"Name": "Resacon en las Vegas"}
+        "properties": {"Name": "Resacon_en_las_Vegas"}
       },
 
        { "type": "Feature",
@@ -58,12 +58,12 @@
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
-        "properties": {"Name": "El jorobado de Notre Dame"}
+        "properties": {"Name": "El_jorobado_de_Notre_Dame"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [31.698889, 35.306389]},
-        "properties": {"Name": "La vida de Brian"}
+        "properties": {"Name": "La_vida_de_Brian"}
        }
     ]
  }

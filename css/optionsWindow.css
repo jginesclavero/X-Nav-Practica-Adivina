@@ -1,13 +1,27 @@
 #finishButtonDiv{
-	position: absolute;
-	margin-left: 65%;
-	margin-top: 16%;
-	z-index: 10;
+	text-align: center;
+	margin-top: 1%;
 }
 
 #difficultButtonDiv{
-	position: absolute;
-	margin-left: 60%;
-	margin-top: 3%;
-	z-index: 10;
+	text-align: center;
+	margin-top: 1%;
+}
+
+#historyListDiv{
+	margin-top: 1%;
+	overflow: scroll;
+	height: 90%;
+}
+
+#historyListDiv a{
+	display: inline;
+}
+
+#newGameButtonDiv{
+	text-align: center;
+	margin-top: 2%;
+}
+#scoreDiv{
+	text-align: center;
 }

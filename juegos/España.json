@@ -1,0 +1,69 @@
+{ 
+  "type": "FeatureCollection",
+    "features": [
+      { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [28.1, -15.4]},
+        "properties": {"Name": "Canarias"}
+      },
+      
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [37.383333, -5.983333]},
+        "properties": {"Name": "Sevilla"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [41.3825, 2.176944]},
+        "properties": {"Name": "Barcelona"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [37.178056, -3.600833]},
+        "properties": {"Name": "Granada"}
+      },
+
+       { 
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [43.262222, -2.953333]},
+        "properties": {"Name": "Bilbao"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [40.071667, -2.135]},
+        "properties": {"Name": "Cuenca"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [37.769722, -3.788889]},
+        "properties": {"Name": "Jaen"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [43.3625, -5.850278]},
+        "properties": {"Name": "Oviedo"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [39.866667, -4.033333]},
+        "properties": {"Name": "Toledo"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [40.654347, -4.696222]},
+        "properties": {"Name": "Avila"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [43.466667, -3.8]},
+        "properties": {"Name": "Santander"}
+      },
+
+       { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [40.418889, -3.691944]},
+        "properties": {"Name": "Madrid"}
+       }
+    ]
+ }
