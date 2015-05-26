@@ -206,7 +206,7 @@ function selectDifficult(){
 }
 
 function getJson(filename){
-    var path = "/juegos/" + filename + ".json";
+    var path = "juegos/" + filename + ".json";
     placeList = [];
     $.getJSON(path, function(data) {
         $.each(data.features,function(posicion, place){
