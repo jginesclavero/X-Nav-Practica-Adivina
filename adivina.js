@@ -34,7 +34,7 @@ function onMapClick(e) {
     marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
     handlerOff();
     scoreCalc(e.latlng);
-    if(indexList.length == 12){ // PONERLO A 12 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if(indexList.length == 12){ 
         finish();
     }else{
         nextSet();
