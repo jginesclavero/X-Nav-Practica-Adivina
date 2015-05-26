@@ -4,7 +4,7 @@
       { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
-        "properties": {"Name": "Amelie,Paris"}
+        "properties": {"Name": "Amelie,(Paris)"}
       },
 
        { 
@@ -16,7 +16,7 @@
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [51.507222, -0.1275]},
-        "properties": {"Name": "Sherlock_Holmes,Londres"}
+        "properties": {"Name": "Sherlock_Holmes,(Londres)"}
       },
 
        { 
@@ -58,7 +58,7 @@
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
-        "properties": {"Name": "El_jorobado_de_Notre_Dame, Paris"}
+        "properties": {"Name": "El_jorobado_de_Notre_Dame, (Paris)"}
       },
 
        { "type": "Feature",
