@@ -1,19 +1,19 @@
 var typeGame;
 var TYPE_GAME1 = "Capitales";
 var TYPE_GAME2 = "Peliculas";
-var TYPE_GAME3 = "España";
+var TYPE_GAME3 = "Ciudades";
 var CONST_LAT = 113.300;
 var CONST_LNG = 111.100;
 var MAX_SCORE = 1000;
 var MARGIN_KM = 25;
 var yourScore = 0;
 var difficult;
-var numGame = 0;
 var presentIndex = 0;
 var indexList = [];
 var placeList = [];
 var linkList = [];
 var handlerList = [];
+var gamesPlayed = [];
 var numPhotos = 0;
 var marker;
 var haveJson = false;
@@ -34,11 +34,8 @@ function onMapClick(e) {
     marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
     handlerOff();
     scoreCalc(e.latlng);
-    if(indexList.length == 5){ // PONERLO A 12 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        var score = $("#score").html();
-        alert("Juego completado. Tu puntuación es de " + score + " puntos");
-        finishGame = true;
-        //saveHistory();
+    if(indexList.length == 12){ // PONERLO A 12 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        finish();
     }else{
         nextSet();
     }
@@ -56,12 +53,11 @@ window.onpopstate = function(event) {
     difficult = event.state.Difficult;
     typeGame = event.state.TypeGame;
     indexList = event.state.IndexList;
-    numGame = event.state.NumGame;
+    placeList = event.state.PlaceList;
     handlerOff();
-    placeList = [];
     finishGame = false;
     $("#score").html(event.state.Score);
-    getJson(typeGame);
+    nextSet();
 };
 
 
@@ -92,27 +88,35 @@ function scoreCalc(latlngClick){
 
 function saveHistory(){
     var score = parseInt($("#score").html());
-    numGame++;
-    var saveObject = {"Difficult": difficult, "TypeGame": typeGame, "IndexList": indexList,"Score":score, "NumGame": numGame};
-    var score = $("#score").html();
-    history.pushState(saveObject,null, "?"+typeGame + "?score=" + score);
-    $("#historyListDiv").append("<a href=javascript:historyCallback(" + numGame + ")>Adivina - " + typeGame + " " 
-        + " Punt: "+ score + "Lvl: " + indexList.length +  "<br>");
+    var saveObject = {"Difficult": difficult, "TypeGame": typeGame, "IndexList": indexList,"Score":score,"PlaceList":placeList};
+    if($.inArray(typeGame,gamesPlayed) == -1){
+        gamesPlayed.push(typeGame);
+        history.pushState(saveObject,null, "?"+typeGame + "?score=" + score);
+        $("#historyListDiv").append("<a href=javascript:historyCallback(" + typeGame + ") id=" + '"'
+            + typeGame + '"' + ">Adivina - " + typeGame + " " + " Punt: "+ score + "Lvl: " + indexList.length +  "<br>");
+    }else{
+        history.replaceState(saveObject,null, "?"+typeGame + "?score=" + score);
+        $("#"+typeGame).html("Adivina - " + typeGame + " " + " Punt: "+ score + "Lvl: " + indexList.length +  "<br>");
+    }
     indexList = [];
 }
 
 function historyCallback(gameTogo){
-    alert("history callback");
-    if((gameTogo - numGame) == 0 ){
-        alert("No puedes ir a este juego");
-    }else{
-        alert("IndexList.length :" + indexList.length);
-
-        if(!finishGame){ 
-            saveHistory();
-        }
-        history.go(gameTogo - numGame);
+    if(!finishGame){ 
+        saveHistory();
     }
+    var gameFin = String(gameTogo).slice(27,-1);
+    var indexFin = gamesPlayed.indexOf(gameFin);
+    var indexSt = gamesPlayed.indexOf(typeGame);
+    history.go(indexFin - indexSt);
+
+}
+
+function finish(){
+    handlerOff();
+    var score = $("#score").html();
+    alert("Juego completado. Tu puntuación es de " + score + " puntos");
+    finishGame = true;
 }
 
 
@@ -140,26 +144,9 @@ function showTypeGame(){
     $('label[for=radio1]').html(TYPE_GAME1);
     $('label[for=radio2]').html(TYPE_GAME2);
     $('label[for=radio3]').html(TYPE_GAME3);
-    $("#nextButtonDiv").attr('onclick', '').click(function() {
-        if($("#radio1").prop("checked")){
-            console.log(TYPE_GAME1);
-            typeGame = TYPE_GAME1;
-            document.title = 'Adivina - ' + TYPE_GAME1;
-        }else if($("#radio2").prop("checked")){
-            console.log(TYPE_GAME2);
-            typeGame = TYPE_GAME2;
-            document.title = 'Adivina - ' + TYPE_GAME2;
-        }else if($("#radio3").prop("checked")){
-            console.log(TYPE_GAME3);
-            typeGame = TYPE_GAME3;
-            document.title = 'Adivina - ' + TYPE_GAME3;
-        }
-        showDifficult();
-    });
-
 }
 
-function typeGame() {
+function selecttypeGame() {
     if($("#radio1").prop("checked")){
     	console.log(TYPE_GAME1);
     	typeGame = TYPE_GAME1;
@@ -230,13 +217,9 @@ function getJson(filename){
 }
 
 function nextSet(){
-     if(indexList.length <= 12){    // QUITAR SI QUITAMOS EL BOTON DE DEBUG
-        presentIndex = randIndex(placeList.length);
-        console.log(placeList[presentIndex].properties.Name);
-        getPictures(placeList[presentIndex].properties.Name);
-    }else{
-        console.log("juego terminado");
-    }
+    presentIndex = randIndex(placeList.length);
+    console.log(placeList[presentIndex].properties.Name);
+    getPictures(placeList[presentIndex].properties.Name);
 }
 
 function randIndex(max){
@@ -280,10 +263,10 @@ function setHandler(photoindex){
     handlerList.push(handler);
 }
 
-
 function newGame(){
     haveJson = false;
     finishGame = false;
     saveHistory();
     showTypeGame();
 }
+

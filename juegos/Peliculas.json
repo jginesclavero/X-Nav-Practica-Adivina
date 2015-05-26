@@ -4,66 +4,66 @@
       { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
-        "properties": {"Name": "Amelie"}
+        "properties": {"Name": "Amelie,Paris"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [40.67, -73.94]},
-        "properties": {"Name": "El_lobo_de_Wall_Street"}
+        "properties": {"Name": "El_lobo_de_Wall_Street,Nueva York"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [51.507222, -0.1275]},
-        "properties": {"Name": "Sherlock_Holmes"}
+        "properties": {"Name": "Sherlock_Holmes,Londres"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [49.368889, -0.868611]},
-        "properties": {"Name": "Salvar_al_soldado_Ryan"}
+        "properties": {"Name": "Salvar_al_soldado_Ryan,Normandia"}
       },
 
        { 
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [40.67, -73.94]},
-        "properties": {"Name": "King_Kong"}
+        "properties": {"Name": "King_Kong,Nueva York"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [-25.725556, 28.243889]},
-        "properties": {"Name": "Invictus"}
+        "properties": {"Name": "Invictus, Pretoria"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [36.175, -115.136389]},
-        "properties": {"Name": "Resacon_en_las_Vegas"}
+        "properties": {"Name": "Resacon_en_las_Vegas, Las Vegas"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [46.766667, 23.583333]},
-        "properties": {"Name": "Dracula"}
+        "properties": {"Name": "Dracula, Transilvania"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [38.805, 22.56]},
-        "properties": {"Name": "300"}
+        "properties": {"Name": "300, Termópilas"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [39.9575, 26.238889]},
-        "properties": {"Name": "Troya"}
+        "properties": {"Name": "Troya, Troya"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [48.866667, 2.333056]},
-        "properties": {"Name": "El_jorobado_de_Notre_Dame"}
+        "properties": {"Name": "El_jorobado_de_Notre_Dame, Paris"}
       },
 
        { "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [31.698889, 35.306389]},
-        "properties": {"Name": "La_vida_de_Brian"}
+        "properties": {"Name": "La_vida_de_Brian, Judea"}
        }
     ]
  }

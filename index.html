@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/confWindow.css">
   <link rel="stylesheet" href="css/optionsWindow.css">
-  <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -40,7 +39,7 @@
                 </div>
             </div>
             <div class="col-md-3 col-xs-3" id="generalButtonDiv">
-                <div id="nextButtonDiv" class="" data-toggle="buttons" onclick="typeGame()">
+                <div id="nextButtonDiv" class="" data-toggle="buttons" onclick="selecttypeGame()">
                     <label class="btn btn-sm btn-success" id="nextButton">
                         <input type="radio" name="options" autocomplete="off" checked >
                             <label for="nextButton">Siguiente <i class="fa fa-arrow-circle-right"></i></label>
@@ -56,29 +55,30 @@
                 </div>
             </div>
         </div> 
-    </div> 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-6 col-xs-12 col-xs-12-push" id="map"></div>
-            <div class="col-md-6 col-xs-12 col-xs-12-pull" id="leftCol">                    
-                <div class="" id="picturesDiv"></div>      
-                <div class="row" id="options">
-                    <div class="col-md-4">
-                        <div id="scoreDiv">
-                            <h3>Puntuación: <i id="score">0</i> </h3>
-                        </div>
-                        <div id="finishButtonDiv" data-toggle="buttons" onclick="finishGame()">
-                            <label class="btn btn-lg btn-success" id="finishButton">
-                                <input type="radio" name="options" autocomplete="off" checked >
-                                <label for="finishButton">Finalizar <i class="fa fa-power-off"></i></label>
-                            </input>
-                        </label>
-                    </div>
+    </div>        
+    <div class="col-md-6 col-xs-12 col-md-12-pull" id="leftCol">                    
+        <div class="" id="picturesDiv"></div>
+        <div class="row" id="directions">
+            <h2>Situa en el mapa la imagen superior, cuanto más cerca estes y 
+                menos fotos necesites, más puntos obtendrás</h2>        
+        </div>      
+        <div class="row" id="options">
+            <div class="col-md-4">
+                <div id="scoreDiv">
+                    <h3>Puntuación: <i id="score">0</i> </h3>
                 </div>
-                <div class="col-md-4">
-                    <div id="difficultButtonDiv" data-toggle="buttons" onclick="showDifficult()">
-                        <label class="btn btn-lg btn-success" id="difficultButton">
-                            <input type="radio" name="options" autocomplete="off" checked >
+                <div id="finishButtonDiv" data-toggle="buttons" onclick="finish()">
+                    <label class="btn btn-lg btn-success" id="finishButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
+                                <label for="finishButton">Finalizar <i class="fa fa-power-off"></i></label>
+                        </input>
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="difficultButtonDiv" data-toggle="buttons" onclick="showDifficult()">
+                    <label class="btn btn-lg btn-success" id="difficultButton">
+                        <input type="radio" name="options" autocomplete="off" checked >
                             <label for="difficultButton">Dificultad</label>
                         </input>
                     </label>
@@ -86,16 +86,15 @@
                 <div id="newGameButtonDiv" data-toggle="buttons" onclick="newGame()">
                     <label class="btn btn-lg btn-success" id="newGameButton">
                         <input type="radio" name="options" autocomplete="off" checked >
-                        <label for="newGameButton">Juego Nuevo</label>
-                    </input>
-                </label>
+                            <label for="newGameButton">Juego Nuevo</label>
+                        </input>
+                    </label>
+                </div>
             </div>
+            <div id="historyListDiv" class="col-md-4"></div>
         </div>
-        <div id="historyListDiv" class="col-md-4"></div>
-</div>
-</div>
-</div>
-</div>
+    </div>
+    <div class="col-md-6 col-xs-12 col-md-12-push" id="map"></div>
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

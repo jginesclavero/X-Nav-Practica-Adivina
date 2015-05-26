@@ -1,24 +1,15 @@
-body{
-	height: 100%;
-	width: 100%;
-}
-
-body .container{
-	margin-left: -1.2%;
+body,html{
+    height: 100%;
 }
 
 #map{
-	position: absolute;
 	height: 100%;
-	width: 100%;	
 }
-#leftcol{
-	position: absolute;
-	margin-left: 3%;
+#picturesDiv{
+	text-align: center;
 }
 
 #picturesDiv img{
-	text-align: center;
 	height: 200px;
 	width: 300px;
 	border-radius: 29px 29px 29px 29px;
@@ -26,18 +17,3 @@ body .container{
 	-webkit-border-radius: 29px 29px 29px 29px;
 	border: 2px solid #000000;
 }
-
-#options{
-	background-color: rgb(204, 255, 152);
-	margin-top: 30%;
-	height: 30%;
-	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-	border-radius: 29px 29px 29px 29px;
-	-moz-border-radius: 29px 29px 29px 29px;
-	-webkit-border-radius: 29px 29px 29px 29px;
-	border: 2px solid #000000;
-
-}
-
